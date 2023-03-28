@@ -33,7 +33,7 @@ const portfolioProjects = [
   },
   {
     id: 4,
-    link: "https://egbadonjeffrey.netlify.app",
+    link: "https://fluffynotes.netlify.app",
     projectTitle: "Fluffy Notes",
     stack: "fullstack app",
     about:
