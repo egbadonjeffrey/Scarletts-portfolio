@@ -48,6 +48,58 @@ const portfolioProjects = [
       "Render",
     ],
   },
+  {
+    id: 5,
+    link: "https://scarlettfeedback.netlify.app/",
+    projectTitle: "Feedback App",
+    stack: "frontend app",
+    about:
+      "Implemented a simple Feedback page, it's purpose could be to rate products, comments.",
+    technologies: ["Reactjs", "CSS", "Netlify", "Framer Motion"],
+  },
+  {
+    id: 6,
+    link: "https://scarlettweather.netlify.app/",
+    projectTitle: "Weather App",
+    stack: "frontend app",
+    about:
+      "Implemented a simple weather checking page, input a location and get the temperature with a corresponding picture to represent how hot or cold.",
+    technologies: ["Reactjs", "CSS", "Netlify", "Open Weather API"],
+  },
+  {
+    id: 7,
+    link: "https://oxari.vercel.app/",
+    projectTitle: "Oxari Redesign",
+    stack: "frontend app",
+    about:
+      "Redesigned Oxari's company website, added a new menu design, blob animation.",
+    technologies: ["Reactjs", "CSS", "Netlify", "React-icons"],
+  },
+  {
+    id: 8,
+    link: "https://scarlett-culinery.vercel.app/",
+    projectTitle: "Scarlett Culinery",
+    stack: "frontend app",
+    about: "Beautiful restaurant website.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    id: 9,
+    link: "https://scarlett-culinery.vercel.app/",
+    projectTitle: "Guessing Game",
+    stack: "frontend app",
+    about:
+      "Simple and basic game, I used to learn how to javascript and DOM Manipulation, It was a fun adventure. You have to view on a desktop as, I never made it responsive. ",
+    technologies: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    id: 10,
+    link: "https://scarlett-task-manager-main.vercel.app/",
+    projectTitle: "Task Manager",
+    stack: "frontend app",
+    about: "Simple Task manager",
+    technologies: ["React.js", "SCSS"],
+  },
 ];
 
 const Works = () => {
