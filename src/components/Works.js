@@ -100,6 +100,14 @@ const portfolioProjects = [
     about: "Simple Task manager",
     technologies: ["React.js", "SCSS"],
   },
+  {
+    id: 11,
+    link: "https://matrodpetroserve.vercel.app/",
+    projectTitle: "Construction and mining website",
+    stack: "frontend app",
+    about: "Freelance project for Construction and mining website",
+    technologies: ["React.js", "CSS", "Swiper"],
+  },
 ];
 
 const Works = () => {
