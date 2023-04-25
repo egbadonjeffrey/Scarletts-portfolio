@@ -85,7 +85,7 @@ const portfolioProjects = [
   },
   {
     id: 9,
-    link: "https://scarlett-culinery.vercel.app/",
+    link: "https://guess-my-number-ruddy.vercel.app/",
     projectTitle: "Guessing Game",
     stack: "frontend app",
     about:
