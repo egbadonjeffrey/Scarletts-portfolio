@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React, { useState } from "react";
 import styled from "styled-components";
 import picture from "../image/jeffrey.jpg";
@@ -5,7 +6,14 @@ import picture from "../image/jeffrey.jpg";
 const About = () => {
   const [hover, setHover] = useState(false);
   return (
-    <Container id="about">
+    <Container
+      id="about"
+      initial={{ opacity: 0, y: 0 }}
+      whileInView={{ opacity: 1, y: -10 }}
+      duration={0.3}
+      transition={{ delay: 0.5, duration: 0.5 }}
+      viewport={{ once: true }}
+    >
       <DescriptionContainer>
         <SectionTitle>
           <Span>01.</Span>
@@ -72,21 +80,27 @@ const About = () => {
 
 export default About;
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   font-family: inherit;
-  width: 80%;
+  width: 50%;
   margin: 0 auto;
   padding: 10rem 0;
 
   @media screen and (min-width: 600px) and (max-width: 1500px) {
+    width: 70%;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media screen and (min-width: 600px) and (max-width: 800px) {
+    width: 90%;
   }
 
   @media screen and (max-width: 500px) {
     display: flex;
+    width: 90%;
     flex-direction: column;
     gap: 2rem;
   }
@@ -215,7 +229,7 @@ const ImageContainer = styled.div`
 
     @media screen and (min-width: 700px) and (max-width: 999px) {
       top: 5rem;
-      left: 3rem;
+      left: 1.5rem;
       width: 100%;
       height: 25rem;
     }
@@ -223,7 +237,7 @@ const ImageContainer = styled.div`
     @media screen and (max-width: 500px) {
       top: 6rem;
       left: 2.5rem;
-      height: 20rem;
+      height: 22rem;
     }
   }
 
@@ -280,6 +294,7 @@ const Image = styled.img`
 
   @media screen and (max-width: 600px) {
     width: 90%;
+    max-height: 350px;
   }
 `;
 

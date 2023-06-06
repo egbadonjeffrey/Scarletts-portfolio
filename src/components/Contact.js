@@ -1,7 +1,31 @@
 import React from "react";
 import styled from "styled-components";
 import { GrInstagram, GrGithub } from "react-icons/gr";
-import { SiTwitter } from "react-icons/si";
+import { SiTwitter, SiQuora, SiLinkedin } from "react-icons/si";
+import { ImStackoverflow } from "react-icons/im";
+import { motion } from "framer-motion";
+
+const projects = [
+  { name: "Project 1", category: "web-app" },
+  { name: "Project 2", category: "mobile" },
+  { name: "Project 3", category: "web-app" },
+  { name: "Project 4", category: "other-projects" },
+  { name: "Project 5", category: "mobile" },
+];
+
+// Filter and console.log based on category
+const filterAndLogProjects = (category) => {
+  const filteredProjects = projects.filter(
+    (project) => project.category === category
+  );
+  console.log(`Projects in ${category} category:`);
+  console.log(filteredProjects);
+};
+
+// Example usage
+filterAndLogProjects("web-app");
+filterAndLogProjects("mobile");
+filterAndLogProjects("other-projects");
 
 const Contact = () => {
   const contactHandler = (e) => {
@@ -9,7 +33,14 @@ const Contact = () => {
     window.location.href = "mailto:egbadonjeffrey.dev@gmail.com";
   };
   return (
-    <Container id="contact">
+    <Container
+      id="contact"
+      initial={{ opacity: 0, y: 0 }}
+      whileInView={{ opacity: 1, y: -10 }}
+      duration={0.3}
+      transition={{ delay: 1, duration: 1 }}
+      viewport={{ once: true }}
+    >
       <SectionTitle>
         <Span>03.</Span>
         <Title>What's Next ?</Title>
@@ -27,16 +58,40 @@ const Contact = () => {
 
       <div>
         <Socials>
-          <Link href="https://www.instagram.com/scarlettcoder/" target="blank">
+          <Link
+            href="https://www.linkedin.com/in/egbadonjeffrey/"
+            target="blank"
+          >
+            <LinkedIn />
+          </Link>
+
+          <Link
+            href="https://www.instagram.com/egbadon_jeffrey/"
+            target="blank"
+          >
             <Instagram />
           </Link>
 
-          <Link href="https://twitter.com/theScarlettCode" target="blank">
+          <Link href="https://twitter.com/egbadon_jeffrey" target="blank">
             <Twitter />
           </Link>
 
-          <Link href="https://www.github.com/theScarlettCoder" target="blank">
+          <Link href="https://www.github.com/egbadonjeffrey" target="blank">
             <Github />
+          </Link>
+
+          <Link
+            href="https://www.quora.com/profile/Jeffrey-Egbadon"
+            target="_blank"
+          >
+            <Quora />
+          </Link>
+
+          <Link
+            href="https://stackoverflow.com/users/19556755/indra"
+            target="_blank"
+          >
+            <StackOverFlow />
           </Link>
         </Socials>
       </div>
@@ -46,14 +101,14 @@ const Contact = () => {
 
 export default Contact;
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
   height: 60vh;
   padding-left: 10rem;
-  padding: 10rem 0;
+  padding: 5rem 0;
   text-align: center;
 `;
 
@@ -99,16 +154,26 @@ const DivTitle = styled.h1`
 `;
 
 const SectionDescription = styled.div`
-  width: 80%;
+  width: 30%;
   margin: 0 auto;
 
   @media screen and (min-width: 1000px) and (max-width: 1999px) {
-    width: 60%;
+    width: 50%;
     white-space: pre-line;
+  }
+
+  @media (max-width: 800px) {
+    width: 70%;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
   }
 `;
 
 const Paragraph = styled.p`
+  width: 70%;
+  margin: 0 auto;
   color: ${({ theme }) => theme.mediumText};
   font-size: 1rem;
   line-height: 1rem;
@@ -165,6 +230,10 @@ const Socials = styled.div`
 const Link = styled.a`
   text-decoration: "none";
   color: ${({ theme }) => theme.smallText};
+
+  &:hover {
+    color: ${({ theme }) => theme.lightShade};
+  }
 `;
 
 const Instagram = styled(GrInstagram)`
@@ -190,6 +259,39 @@ const Twitter = styled(SiTwitter)`
 `;
 
 const Github = styled(GrGithub)`
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+
+  @media (min-width: 2000px) {
+    width: 3rem;
+    height: 3rem;
+  }
+`;
+
+const Quora = styled(SiQuora)`
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+
+  @media (min-width: 2000px) {
+    width: 3rem;
+    height: 3rem;
+  }
+`;
+
+const StackOverFlow = styled(ImStackoverflow)`
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+
+  @media (min-width: 2000px) {
+    width: 3rem;
+    height: 3rem;
+  }
+`;
+
+const LinkedIn = styled(SiLinkedin)`
   height: 1.5rem;
   width: 1.5rem;
   cursor: pointer;

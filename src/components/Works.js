@@ -1,7 +1,9 @@
-import React from "react";
 import styled from "styled-components";
 import { AiOutlineFolderOpen } from "react-icons/ai";
 import { RiExternalLinkLine } from "react-icons/ri";
+import { SiGoogleplay } from "react-icons/si";
+import { FaAppStore } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const portfolioProjects = [
   {
@@ -15,6 +17,49 @@ const portfolioProjects = [
   },
   {
     id: 2,
+    link: "https://expo.dev/@thescarlettcoder/google-places?serviceType=classic&distribution=expo-go",
+    projectTitle: "Go Travel",
+    stack: "mobile app",
+    about:
+      "Travel advisor application where you can search for different locations and get Hotels, attractions and restaurants. At your convenience in unfamiliar places.",
+    technologies: ["React native", "Expo", "Travel Advisor API"],
+  },
+
+  {
+    id: 4,
+    link: "https://matrodpetroserve.vercel.app/",
+    projectTitle: "Construction and mining website",
+    stack: "frontend app",
+    about: "Freelance project for Construction and mining website",
+    technologies: ["React.js", "CSS", "Swiper"],
+  },
+  {
+    id: 5,
+    link: "https://oxari.vercel.app/",
+    projectTitle: "Oxari Redesign",
+    stack: "frontend app",
+    about:
+      "Redesigned Oxari's company website, added a new menu design, blob animation.",
+    technologies: ["Reactjs", "CSS", "Netlify", "React-icons"],
+  },
+  {
+    id: 6,
+    link: "https://expo.dev/@thescarlettcoder/kickshub?serviceType=classic&distribution=expo-go",
+    projectTitle: "KicksHub ",
+    stack: "mobile app",
+    about: "E-commerce application for selling amazing quality shoes. ",
+    technologies: ["React native", "Nativebase", "Expo"],
+  },
+  {
+    id: 7,
+    link: "https://scarlett-culinery.vercel.app/",
+    projectTitle: "Scarlett Culinery",
+    stack: "frontend app",
+    about: "Beautiful restaurant website.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    id: 8,
     link: "https://plant-decor.vercel.app/",
     projectTitle: "Interior Plant decoration",
     stack: "frontend app",
@@ -23,7 +68,7 @@ const portfolioProjects = [
     technologies: ["React.js", "CSS", "Vercel"],
   },
   {
-    id: 3,
+    id: 9,
     link: "https://scarlett-recipes.vercel.app/",
     projectTitle: "Recipe Website",
     stack: "fullstack app",
@@ -32,7 +77,7 @@ const portfolioProjects = [
     technologies: ["Next.js", "Contentful"],
   },
   {
-    id: 4,
+    id: 10,
     link: "https://fluffynotes.netlify.app",
     projectTitle: "Fluffy Notes",
     stack: "fullstack app",
@@ -49,7 +94,7 @@ const portfolioProjects = [
     ],
   },
   {
-    id: 5,
+    id: 11,
     link: "https://scarlettfeedback.netlify.app/",
     projectTitle: "Feedback App",
     stack: "frontend app",
@@ -58,7 +103,7 @@ const portfolioProjects = [
     technologies: ["Reactjs", "CSS", "Netlify", "Framer Motion"],
   },
   {
-    id: 6,
+    id: 12,
     link: "https://scarlettweather.netlify.app/",
     projectTitle: "Weather App",
     stack: "frontend app",
@@ -66,25 +111,9 @@ const portfolioProjects = [
       "Implemented a simple weather checking page, input a location and get the temperature with a corresponding picture to represent how hot or cold.",
     technologies: ["Reactjs", "CSS", "Netlify", "Open Weather API"],
   },
+
   {
-    id: 7,
-    link: "https://oxari.vercel.app/",
-    projectTitle: "Oxari Redesign",
-    stack: "frontend app",
-    about:
-      "Redesigned Oxari's company website, added a new menu design, blob animation.",
-    technologies: ["Reactjs", "CSS", "Netlify", "React-icons"],
-  },
-  {
-    id: 8,
-    link: "https://scarlett-culinery.vercel.app/",
-    projectTitle: "Scarlett Culinery",
-    stack: "frontend app",
-    about: "Beautiful restaurant website.",
-    technologies: ["HTML", "CSS", "JavaScript"],
-  },
-  {
-    id: 9,
+    id: 13,
     link: "https://guess-my-number-ruddy.vercel.app/",
     projectTitle: "Guessing Game",
     stack: "frontend app",
@@ -93,20 +122,12 @@ const portfolioProjects = [
     technologies: ["HTML", "CSS", "JavaScript"],
   },
   {
-    id: 10,
+    id: 14,
     link: "https://scarlett-task-manager-main.vercel.app/",
     projectTitle: "Task Manager",
     stack: "frontend app",
     about: "Simple Task manager",
     technologies: ["React.js", "SCSS"],
-  },
-  {
-    id: 11,
-    link: "https://matrodpetroserve.vercel.app/",
-    projectTitle: "Construction and mining website",
-    stack: "frontend app",
-    about: "Freelance project for Construction and mining website",
-    technologies: ["React.js", "CSS", "Swiper"],
   },
 ];
 
@@ -119,34 +140,48 @@ const Works = () => {
       </SectionTitle>
 
       <Projects>
-        {portfolioProjects.map((project) => (
-          <ProjectContainer key={project.id}>
-            <Project>
-              <ProjectHead>
-                <FileIcon />
-                <Link href={project.link} target="blank">
-                  <LinkIcon />
-                </Link>
-              </ProjectHead>
-              <ProjectBody>
-                <ProjectIntro>
-                  <ProjectTitle>{project.projectTitle}</ProjectTitle>
-                  <ProjectStack>{project.stack}</ProjectStack>
-                </ProjectIntro>
+        {portfolioProjects.map((project, index) => {
+          return (
+            <ProjectContainer
+              initial={{ opacity: 0, y: 0 }}
+              whileInView={{ opacity: 1, y: -10 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: index * 0.3,
+                duration: 0.3,
+              }}
+            >
+              <Project>
+                <ProjectHead>
+                  {project.stack === "mobile app" ? <AppLogo /> : <FileIcon />}
+                  <Link href={project.link} target="blank">
+                    {project.stack === "mobile app" ? (
+                      <AppIcon />
+                    ) : (
+                      <LinkIcon />
+                    )}
+                  </Link>
+                </ProjectHead>
+                <ProjectBody>
+                  <ProjectIntro>
+                    <ProjectTitle>{project.projectTitle}</ProjectTitle>
+                    <ProjectStack>{project.stack}</ProjectStack>
+                  </ProjectIntro>
 
-                <ProjectAbout>
-                  <About>{project.about}</About>
+                  <ProjectAbout>
+                    <About>{project.about}</About>
 
-                  <Technologies>
-                    {project.technologies.map((technologies, index) => (
-                      <List key={index}>{technologies}</List>
-                    ))}
-                  </Technologies>
-                </ProjectAbout>
-              </ProjectBody>
-            </Project>
-          </ProjectContainer>
-        ))}
+                    <Technologies>
+                      {project.technologies.map((technologies, index) => (
+                        <List key={index}>{technologies}</List>
+                      ))}
+                    </Technologies>
+                  </ProjectAbout>
+                </ProjectBody>
+              </Project>
+            </ProjectContainer>
+          );
+        })}
       </Projects>
     </Container>
   );
@@ -158,9 +193,21 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 80%;
+  width: 50%;
   padding: 10rem 0;
-  margin: 0 auto;
+  margin: 5rem auto;
+
+  @media (max-width: 1500px) {
+    width: 70%;
+  }
+
+  @media (max-width: 800px) {
+    width: 90%;
+  }
+
+  @media (max-width: 600px) {
+    width: 85%;
+  }
 `;
 
 const SectionTitle = styled.div`
@@ -209,6 +256,7 @@ const Projects = styled.div`
 
   @media screen and (min-width: 600px) and (max-width: 999px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
   }
 
   @media screen and (max-width: 500px) {
@@ -216,14 +264,14 @@ const Projects = styled.div`
   }
 `;
 
-const ProjectContainer = styled.div`
+const ProjectContainer = styled(motion.div)`
   width: 100%;
   background: ${({ theme }) => theme.themeControllerBackground};
   padding: 2rem 1.5rem;
   border-radius: 10px;
   box-shadow: 0 0 2px 0px ${({ theme }) => theme.shadow};
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 800px) {
     width: 90%;
     height: auto;
   }
@@ -253,8 +301,23 @@ const ProjectHead = styled.div`
 
 const FileIcon = styled(AiOutlineFolderOpen)`
   color: ${({ theme }) => theme.iconShade};
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  @media screen and (min-width: 2000px) {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  &:hover {
+    color: #c05c1ef3;
+  }
+`;
+
+const AppLogo = styled(FaAppStore)`
+  color: ${({ theme }) => theme.iconShade};
+  width: 2.5rem;
+  height: 2.5rem;
 
   @media screen and (min-width: 2000px) {
     width: 6rem;
@@ -275,6 +338,7 @@ const LinkIcon = styled(RiExternalLinkLine)`
   color: ${({ theme }) => theme.mediumText};
   width: 1.5rem;
   height: 1.5rem;
+  margin-left: 5rem;
 
   @media screen and (min-width: 2000px) {
     width: 3rem;
@@ -282,7 +346,22 @@ const LinkIcon = styled(RiExternalLinkLine)`
   }
 
   &:hover {
-    color: #c16f27cc;
+    color: ${({ theme }) => theme.lightShade};
+  }
+`;
+
+const AppIcon = styled(SiGoogleplay)`
+  color: ${({ theme }) => theme.mediumText};
+  width: 1.5rem;
+  height: 1.5rem;
+
+  @media screen and (min-width: 2000px) {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &:hover {
+    color: ${({ theme }) => theme.lightShade};
   }
 `;
 

@@ -3,6 +3,25 @@ import styled from "styled-components";
 import { DarkModeContext } from "../context/ContextWrapper";
 import { BsSun, BsMoonStars } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { motion } from "framer-motion";
+
+const NavItems = [
+  {
+    span: "01.",
+    name: "About",
+    link: "#about",
+  },
+  {
+    span: "02.",
+    name: "Works",
+    link: "#work",
+  },
+  {
+    span: "03.",
+    name: "Contact",
+    link: "#contact",
+  },
+];
 
 const Navbar = () => {
   const [mobile, setMobile] = useState(false);
@@ -35,7 +54,7 @@ const Navbar = () => {
 
         <Button>
           <ButtonLink
-            href="https://thescarlettcoder.github.io/resume/"
+            href="https://egbadonjeffrey.github.io/resume/"
             target="blank"
           >
             Resume
@@ -50,15 +69,21 @@ const Navbar = () => {
           ""
         ) : (
           <Menu>
-            <NavLink href="#about">
-              <Span>01.</Span> About
-            </NavLink>
-            <NavLink href="#work">
-              <Span>02.</Span> Works
-            </NavLink>
-            <NavLink href="#contact">
-              <Span>03.</Span> Contact
-            </NavLink>
+            {NavItems.map((navItem, index) => (
+              <NavLink
+                key={index}
+                href={navItem.link}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.3,
+                  duration: 0.5,
+                }}
+              >
+                <Span>{navItem.span}</Span> {navItem.name}
+              </NavLink>
+            ))}
           </Menu>
         )}
 
@@ -79,6 +104,8 @@ const Container = styled.nav`
   position: relative;
   width: 100%;
   margin: 0;
+  padding-bottom: 0;
+  border-bottom: 0.5px solid #cacaca;
 `;
 
 const CancelMenu = styled.span`
@@ -157,7 +184,7 @@ const Menu = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
 `;
 
 const MobileNavLink = styled.a`
@@ -171,7 +198,7 @@ const MobileNavLink = styled.a`
   color: ${({ theme }) => theme.darkShade};
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(motion.a)`
   text-decoration: none;
   color: ${({ theme }) => theme.darkShade};
   font-size: 1rem;

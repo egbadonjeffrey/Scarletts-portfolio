@@ -1,27 +1,66 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const Intro = () => {
   return (
     <Container>
-      <Span>Hi, my name is</Span>
+      <Span
+        initial={{ opacity: 0, y: 0 }}
+        animate={{ opacity: 1, y: -10 }}
+        duration={0.3}
+        transition={{ delay: 1, duration: 0.3 }}
+        viewport={{ once: true }}
+      >
+        Hi, my name is
+      </Span>
 
       <DescriptionContainer>
         <TitleContainer>
-          <Name>Egbadon Jeffrey.</Name>
-          <Title2>I build things for the web.</Title2>
+          <Name
+            initial={{ opacity: 0, y: 0 }}
+            animate={{ opacity: 1, y: -10 }}
+            duration={0.3}
+            transition={{ delay: 1.5, duration: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Egbadon Jeffrey.
+          </Name>
+          <Title2
+            initial={{ opacity: 0, y: 0 }}
+            animate={{ opacity: 1, y: -10 }}
+            duration={0.3}
+            transition={{ delay: 2, duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            I build things for the web.
+          </Title2>
         </TitleContainer>
 
-        <Description>
+        <Description
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: 1, y: -10 }}
+          duration={0.3}
+          transition={{ delay: 2, duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           I am an experienced Web developer specializing in frontend
           development. I have delivered successful projects with ReactJS, with a
           focus on quality and efficiency. I am committed to staying current
           with industry advancements.
         </Description>
 
-        <a href="https://thescarlettcoder.github.io/resume/" target="blank">
+        <motion.a
+          href="https://egbadonjeffrey.github.io/resume/"
+          target="blank"
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: 1, y: -10 }}
+          duration={0.3}
+          transition={{ delay: 2, duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           <Button>Check out my Resume</Button>
-        </a>
+        </motion.a>
       </DescriptionContainer>
     </Container>
   );
@@ -34,16 +73,24 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   font-family: inherit;
 
+  @media (max-width: 1500px) {
+    width: 70%;
+  }
+
+  @media (max-width: 800px) {
+    width: 90%;
+  }
+
   @media (max-width: 500px) {
-    width: 80%;
+    width: 90%;
   }
 `;
 
-const Span = styled.span`
+const Span = styled(motion.span)`
   width: 80%;
   font-family: inherit;
   font-size: 18px;
@@ -64,7 +111,7 @@ const TitleContainer = styled.div`
   font-weight: 400;
 `;
 
-const Name = styled.h1`
+const Name = styled(motion.h1)`
   font-size: 5rem;
   font-weight: 700;
   color: ${({ theme }) => theme.darkShade};
@@ -83,11 +130,11 @@ const Name = styled.h1`
   }
 
   @media (max-width: 600px) {
-    font-size: 2.3rem;
+    font-size: 2.5rem;
   }
 `;
 
-const Title2 = styled.h1`
+const Title2 = styled(motion.h1)`
   color: ${({ theme }) => theme.mediumText};
   font-weight: 700;
   font-size: 4rem;
@@ -110,16 +157,20 @@ const Title2 = styled.h1`
   }
 `;
 
-const Description = styled.p`
+const Description = styled(motion.p)`
   color: ${({ theme }) => theme.mediumText};
   font-size: 16px;
-  width: 80%;
+  width: 60%;
   margin-top: 1rem;
   white-space: pre-line;
 
   @media screen and (min-width: 2000px) {
     font-size: 30px;
     width: 100%;
+  }
+
+  @media (max-width: 800px) {
+    width: 70%;
   }
 
   @media (max-width: 600px) {
