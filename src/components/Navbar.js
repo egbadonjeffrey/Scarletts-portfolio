@@ -121,7 +121,7 @@ const MobileMenu = styled.div`
   left: ${(props) => (props.menu ? "0" : "-500px")};
   background: ${({ theme }) => theme.background};
   width: 100%;
-  height: 100vh;
+  height: 120vh;
   color: black;
   display: flex;
   flex-direction: column;

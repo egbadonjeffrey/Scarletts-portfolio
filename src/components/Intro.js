@@ -41,7 +41,7 @@ const Intro = () => {
           initial={{ opacity: 0, y: 0 }}
           animate={{ opacity: 1, y: -10 }}
           duration={0.3}
-          transition={{ delay: 2, duration: 0.5 }}
+          transition={{ delay: 2.5, duration: 0.5 }}
           viewport={{ once: true }}
         >
           I am an experienced Web developer specializing in frontend
@@ -56,7 +56,7 @@ const Intro = () => {
           initial={{ opacity: 0, y: 0 }}
           animate={{ opacity: 1, y: -10 }}
           duration={0.3}
-          transition={{ delay: 2, duration: 0.5 }}
+          transition={{ delay: 2.7, duration: 0.5 }}
           viewport={{ once: true }}
         >
           <Button>Check out my Resume</Button>
