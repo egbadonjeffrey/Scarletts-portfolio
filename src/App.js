@@ -6,6 +6,7 @@ import Home from "./pages/home";
 import { GlobalStyles } from "./components/GlobalStyles";
 import KicksHub from "./pages/kicksHub";
 import TravelGo from "./pages/travelGo";
+import PreviewLayout from "./components/PreviewLayout";
 
 function App() {
   const Wrapper = (items) => {
@@ -13,6 +14,15 @@ function App() {
       <ContextWrapper>
         <GlobalStyles />
         <Layout theme>{items}</Layout>
+      </ContextWrapper>
+    );
+  };
+
+  const PreviewWrapper = (items) => {
+    return (
+      <ContextWrapper>
+        <GlobalStyles />
+        <PreviewLayout theme>{items}</PreviewLayout>
       </ContextWrapper>
     );
   };
@@ -24,12 +34,12 @@ function App() {
           <Route
             exact
             path="/kickshub-preview"
-            element={Wrapper(<KicksHub />)}
+            element={PreviewWrapper(<KicksHub />)}
           />
           <Route
             exact
             path="/travelgo-preview"
-            element={Wrapper(<TravelGo />)}
+            element={PreviewWrapper(<TravelGo />)}
           />
         </Routes>
       </Router>

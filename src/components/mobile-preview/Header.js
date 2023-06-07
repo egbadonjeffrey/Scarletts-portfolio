@@ -13,7 +13,7 @@ const HeaderComponent = ({ title }) => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 2, duration: 0.5 }}
-        ></Notch>
+        />
         <Image
           src={Phone}
           alt="phone preview"
@@ -91,27 +91,27 @@ const Notch = styled(motion.div)`
   border-bottom-right-radius: 40px;
 
   @media (max-width: 1440px) {
-    width: 35%;
-    left: 33%;
-    height: 20px;
+    width: 25%;
+    left: 38%;
+    height: 27px;
   }
 
-  @media (width: 1024px) {
-    left: 20%;
+  @media (max-width: 1024px) {
+    left: 40%;
     width: 19%;
     height: 20px;
   }
 
   @media (width: 768px) {
-    left: 40%;
+    /* left: 40%; */
     width: 19%;
     height: 20px;
   }
 
   @media (max-width: 600px) {
     left: 35%;
-    /* width: 19%;
-    height: 20px; */
+    width: 30%;
+    height: 20px;
   }
 `;
 

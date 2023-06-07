@@ -3,6 +3,7 @@ import styled from "styled-components";
 import HeaderComponent from "../components/mobile-preview/Header";
 import Screens from "../components/mobile-preview/Screens";
 import TransitionEffect from "../components/TransitionEffect";
+import { ScreensMocks } from "../data";
 
 const TravelGo = () => {
   return (

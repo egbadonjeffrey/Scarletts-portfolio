@@ -3,27 +3,35 @@ import React from "react";
 import styled from "styled-components";
 
 const Screens = ({ ScreensMocks }) => {
-  console.log(ScreensMocks[0].title);
+  // console.log(ScreensMocks[0].title);
 
   return (
     <Container>
       <DivTitle>SCREENS</DivTitle>
-      <DivContainer>
-        {ScreensMocks.map((i, index) => (
-          <Div
-            initial={{ opacity: 0, translateY: 0 }}
-            whileInView={{ opacity: 1, translateY: 30 }}
-            viewport={{ once: true }}
-            transition={{
-              delay: index > 7 ? index * 0.2 : index * 0.3,
-              duration: 0.3,
-            }}
-          >
-            <H1>{i.title}</H1>
-            <Img key={index} src={i.image} alt="phone models" />
-          </Div>
-        ))}
-      </DivContainer>
+      {ScreensMocks ? (
+        <DivContainer>
+          {ScreensMocks?.map((i, index) => (
+            <Div
+              key={index}
+              initial={{ opacity: 0, translateY: 0 }}
+              whileInView={{ opacity: 1, translateY: 30 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: index > 7 ? index * 0.2 : index * 0.3,
+                duration: 0.2,
+              }}
+            >
+              <H1>{i.title}</H1>
+              <Img key={index} src={i.image} alt="phone models" />
+            </Div>
+          ))}
+        </DivContainer>
+      ) : (
+        <EmptyDiv>
+          "I AM A LITTLE BUSY RIGHT NOW WITH OTHER PROJECTS, I'LL UPLOAD THE
+          MOCKUPS SOON..."
+        </EmptyDiv>
+      )}
     </Container>
   );
 };
@@ -80,6 +88,12 @@ const DivContainer = styled.div`
 
 const Div = styled(motion.div)`
   text-align: center;
+`;
+
+const EmptyDiv = styled.div`
+  font-size: 2rem;
+  font-style: italic;
+  color: ${({ theme }) => theme.darkShade};
 `;
 
 const H1 = styled.h1`
