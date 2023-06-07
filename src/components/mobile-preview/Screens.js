@@ -17,8 +17,8 @@ const Screens = ({ ScreensMocks }) => {
               whileInView={{ opacity: 1, translateY: 30 }}
               viewport={{ once: true }}
               transition={{
-                delay: index > 7 ? index * 0.2 : index * 0.3,
-                duration: 0.2,
+                delay: index > 11 ? index * 0.2 : 0,
+                duration: 0.1,
               }}
             >
               <H1>{i.title}</H1>

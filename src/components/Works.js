@@ -44,7 +44,7 @@ const portfolioProjects = [
   },
   {
     id: 6,
-    link: "https://expo.dev/@thescarlettcoder/kickshub?serviceType=classic&distribution=expo-go",
+    link: "https://egbadonjeffrey.vercel.app/kickshub-preview",
     projectTitle: "KicksHub ",
     stack: "mobile app",
     about: "E-commerce application for selling amazing quality shoes. ",

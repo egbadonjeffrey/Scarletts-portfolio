@@ -129,6 +129,7 @@ const MobileMenu = styled.div`
   align-items: center;
   gap: 2rem;
   transition: all 300ms ease;
+  z-index: 10;
 
   @media screen and (min-width: 700px) {
     display: none;
