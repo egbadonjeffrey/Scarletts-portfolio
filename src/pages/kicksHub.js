@@ -23,5 +23,4 @@ const Container = styled.div`
   width: 80%;
   margin: 0 auto;
   height: auto;
-  z-index: -1;
 `;
