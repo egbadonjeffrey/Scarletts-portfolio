@@ -8,11 +8,17 @@ const HeaderComponent = ({ title }) => {
   return (
     <Container>
       <ImageContainer className="card-container">
+        <Notch
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 2, duration: 0.5 }}
+        ></Notch>
         <Image
           src={Phone}
           alt="phone preview"
-          initial={{ opacity: 0, x: 0 }}
-          whileInView={{ opacity: 1, x: 30 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 2, duration: 0.5 }}
         />
@@ -72,26 +78,53 @@ const Container = styled.div`
   }
 `;
 
+const Notch = styled(motion.div)`
+  background: black;
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: 37%;
+  height: 28px;
+  width: 25%;
+  z-index: 10;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+
+  @media (max-width: 1440px) {
+    width: 35%;
+    left: 33%;
+    height: 20px;
+  }
+
+  @media (width: 1024px) {
+    left: 20%;
+    width: 19%;
+    height: 20px;
+  }
+
+  @media (width: 768px) {
+    left: 40%;
+    width: 19%;
+    height: 20px;
+  }
+
+  @media (max-width: 600px) {
+    left: 35%;
+    /* width: 19%;
+    height: 20px; */
+  }
+`;
+
 const ImageContainer = styled.div`
   position: relative;
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 70%;
 
-  &:before {
-    background: black;
-    position: absolute;
-    content: "";
-    top: 5px;
-    left: 15%;
-    height: 28px;
-    width: 25%;
-    z-index: 10;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-  }
-
   @media (max-width: 800px) {
-    display: none;
+    /* margin-left: 1rem; */
   }
 `;
 

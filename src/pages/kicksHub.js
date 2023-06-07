@@ -16,7 +16,6 @@ import ShowTotal from "../image/Screens/kickshub-mocks/show-total01.png";
 import ShowTotal2 from "../image/Screens/kickshub-mocks/show-total.png";
 import OrderModal from "../image/Screens/kickshub-mocks/show-order-modal.png";
 import ConfirmDetails from "../image/Screens/kickshub-mocks/show-payment-and-total01.png";
-import ConfirmDetails2 from "../image/Screens/kickshub-mocks/show-payment-and-total.png";
 import PayFinal from "../image/Screens/kickshub-mocks/pay-later-screen.png";
 
 const ScreensMocks = [
@@ -71,10 +70,6 @@ const ScreensMocks = [
   {
     title: "CONFIRM DETAILS 1",
     image: ConfirmDetails,
-  },
-  {
-    title: "CONFIRM DETAILS 2",
-    image: ConfirmDetails2,
   },
   {
     title: "PAY FINAL",

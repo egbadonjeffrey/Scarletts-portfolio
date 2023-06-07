@@ -10,20 +10,17 @@ const Screens = ({ ScreensMocks }) => {
       <DivTitle>SCREENS</DivTitle>
       <DivContainer>
         {ScreensMocks.map((i, index) => (
-          <Div>
+          <Div
+            initial={{ opacity: 0, translateY: 0 }}
+            whileInView={{ opacity: 1, translateY: 30 }}
+            viewport={{ once: true }}
+            transition={{
+              delay: index > 7 ? index * 0.2 : index * 0.3,
+              duration: 0.3,
+            }}
+          >
             <H1>{i.title}</H1>
-            <Img
-              key={index}
-              src={i.image}
-              alt="phone models"
-              initial={{ opacity: 0, translateY: 0 }}
-              whileInView={{ opacity: 1, translateY: 30 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: index > 7 ? index * 0.2 : index * 0.3,
-                duration: 0.3,
-              }}
-            />
+            <Img key={index} src={i.image} alt="phone models" />
           </Div>
         ))}
       </DivContainer>
@@ -43,8 +40,13 @@ const Container = styled.div`
   padding: 3rem;
 
   @media (max-width: 800px) {
-    width: 90%;
     margin: 0 auto;
+    padding: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    margin-left: -1rem;
     padding: 1rem;
   }
 `;
@@ -66,7 +68,7 @@ const DivContainer = styled.div`
   width: 90%;
   margin: 4rem auto;
 
-  @media (max-width: 800px) {
+  @media (max-width: 1024px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -76,19 +78,21 @@ const DivContainer = styled.div`
   }
 `;
 
-const Div = styled.div`div
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+const Div = styled(motion.div)`
   text-align: center;
 `;
 
 const H1 = styled.h1`
+  color: ${({ theme }) => theme.mediumText};
   font-size: 1.3rem;
   font-weight: 600;
   margin: 0;
-  margin-top: 2rem;
-  margin-bottom: -1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  @media (max-width: 800px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const Img = styled(motion.img)`
