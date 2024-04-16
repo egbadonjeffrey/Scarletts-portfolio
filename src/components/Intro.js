@@ -24,7 +24,7 @@ const Intro = () => {
             transition={{ delay: 1.5, duration: 0.3 }}
             viewport={{ once: true }}
           >
-            Egbadon Jeffrey.
+            {/* Egbadon  */} Jeffrey.
           </Name>
           <Title2
             initial={{ opacity: 0, y: 0 }}
@@ -50,7 +50,7 @@ const Intro = () => {
           with industry advancements.
         </Description>
 
-        <motion.a
+        {/* <motion.a
           href="https://egbadonjeffrey.github.io/resume/"
           target="blank"
           initial={{ opacity: 0, y: 0 }}
@@ -60,7 +60,7 @@ const Intro = () => {
           viewport={{ once: true }}
         >
           <Button>Check out my Resume</Button>
-        </motion.a>
+        </motion.a> */}
       </DescriptionContainer>
     </Container>
   );
