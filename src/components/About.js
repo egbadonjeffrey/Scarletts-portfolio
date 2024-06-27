@@ -22,9 +22,11 @@ const About = () => {
 
         <Paragraph>
           Hello! My name is Jeffrey and I enjoying creating things that live on
-          the internet. My interest in web development started back in 2015 when
-          I decided to try editing my blog on blogspot - turns out hacking
-          together a custom blog taught me a lot about HTML & CSS!
+          the internet. My interest in web development started back in 2020 when
+          I decided to try editing my blog on blogspot - I had a lot of run arounds and got frustrated a lot due to the lack of knowledge and expertise.
+          The passion of certain individuals sparked  an interest that led to learning and immersing myself in the space.
+          My journey hasn't been an easy one, but, the journey is still unfolding.
+          I hope it turns out great.
         </Paragraph>
 
         <Paragraph>
@@ -37,6 +39,10 @@ const About = () => {
           Fast forward to today, I am a front-end developer intern at lizard
           global, my focus is developing and maintaining efficient products for
           the company's clients(My Clients).
+        </Paragraph>
+
+        <Paragraph>
+          My name is Jeffrey and this is neither the beginning nor the end of my story.
         </Paragraph>
 
         <Paragraph>
