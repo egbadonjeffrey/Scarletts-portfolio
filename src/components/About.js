@@ -36,9 +36,9 @@ const About = () => {
         </Paragraph>
 
         <Paragraph>
-          Fast forward to today, I am a front-end developer intern at lizard
+          After learning ReactJS, I landed an internship at lizard
           global, my focus is developing and maintaining efficient products for
-          the company's clients(My Clients).
+          the company, where I learned a lot working in a team and about what goes into delivering products and ideas.
         </Paragraph>
 
         <Paragraph>
@@ -46,7 +46,7 @@ const About = () => {
         </Paragraph>
 
         <Paragraph>
-          Here are a few technologies I've been working with recently:
+          Here are a few technologies I've worked with:
         </Paragraph>
 
         <ListsContainer>
@@ -54,6 +54,10 @@ const About = () => {
             <ListTitle>Technologies</ListTitle>
             <UnorderedList>
               {[
+                "HTML",
+                "CSS",
+                "TailwindCSS",
+                "SASS",
                 "JavaScript",
                 "React js",
                 "Next js",
